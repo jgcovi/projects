@@ -1,0 +1,28 @@
+We know that for a set of n elements, there are n! possible permutations. 
+For an average, fair deck of 52 cards, the results of Bayer and Diaconis show that for 52 distinct cards, each of 52! possible permutations are equally likely after 7 shuffles. For fewer shuffles than 7, a deck this size will not be random.
+In fact, they show (3/2)log_2(n) are needed to shuffle n cards. 
+
+— Attempted to use the total variation distance to find the number of shuffles needed for n cards — total_var_dist(int: n, int: k) method in shuffles.py
+
+Also according to Bayer and Diaconis, one good way to measure whether a deck has been randomized is to measure the total variation distance; that is to say the probability that an arbitrary card is in any given spot is 1/n. To measure this, we should find the probability densities of each possible permutation
+
+Some questions we could ask:
+Where do the original top and bottom cards wind up?
+What is the distribution of cards that started out together?
+What is the distribution, after one shuffle, of the relative order of groups
+of consecutive cards? 
+
+(Some of these helpful questions are from: https://arxiv.org/pdf/1107.2961.pdf)
+
+What are some small changes we could make to the shuffling model? 
+Perhaps, how do repeated cards affect the number of shuffles needed?
+
+Consider if, instead of shuffling n distinct elements, there are repeated elements in the set. The shuffling algorithm implemented above will no longer be as effective, I think. Though it probably depends on how many elements are repeated.
+
+Another consideration we could make, as suggested: what if some elements cannot be easily separated during the shuffling process (i.e., cards are sticky)? While I personally don’t know a way (at the time) to model this that would be more indicative of a real world scenario, we can group a couple of the set elements together so that they must always be next to one another in a certain order (not very realistically indicative, but for something small scale, this could maybe do the trick.)
+
+Another change could be made to the model: suppose the top card never changes. When a card gets bent enough and we’re trying to shuffle, the bent card often doesn’t lend itself to easily being incorporated into the pile (it often flops out of your hand when it’s on the top) and let us just suppose that it remains the top card. This has now made a restriction on the possible orderings of the cards, as one position is permanently taken and we are now left with (n-1)! possible permutations, each of which should be equally likely given the rest of the conditions stay the same and the appropriate number of shuffles are done. 
+
+Another main resource has been: https://www.stat.berkeley.edu/~aldous/157/Papers/bayer_diaconis.pdf
+
+
