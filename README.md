@@ -1,2 +1,2 @@
 # projects
-Miscellaneous one-offs
+A collection of small, miscellaneous projects.
