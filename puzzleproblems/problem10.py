@@ -15,8 +15,9 @@ def get_prime_list(n=100):
     return plist
 
 def get_list_sum(n=100):
-    # plist = get_prime_list(n)
-    plist = seive(n)
+    """Get the sum of all primes <=n"""
+    # plist = get_prime_list(n)  # Originally used the above method
+    plist = seive(n)  # Eventually wrote a seieve to optimize the process of finding primes.
     return sum(plist)
 
 n = 2000000

@@ -1,7 +1,3 @@
-""" The prime factors of 13195 are 5, 7, 13 and 29.
-
-What is the largest prime factor of the number 600851475143 ?"""
-
 def is_prime(n):
     """Determine if a number is prime. (My initial - naive - implementation)."""
     # start with the most simple cases, checking against the first 2 prime numbers
@@ -21,7 +17,7 @@ def is_prime(n):
     return is_prime
 
 def get_primes(n):
-    """Get all primes < n"""
+    """Get all prime numbers which appear in the prime factorization of n."""
     prime_list = []
     total = n
     if is_prime(n):
